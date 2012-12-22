@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100italic|Wire+One);
+@import url(http://fonts.googleapis.com/css?family=Lato:100|Wire+One);
 /******************************************************************
 Site Name:
 Author:
@@ -804,11 +804,10 @@ h5, .h5 {
 /*********************
 HEADER SYTLES
 *********************/
-#logo {
-  text-align: center; }
-
 .title-huge {
-  font-size: 75px; }
+  font-family: "Lato", sans-serif !important;
+  font-size: 30px;
+  font-weight: 100; }
 
 /*********************
 NAVIGATION STYLES
@@ -891,6 +890,8 @@ POSTS & CONTENT STYLES
   and floating images at the next breakpoint,
   but it's up to you. Feel free to change it up.
   */ }
+  .entry-content p {
+    font-size: 28px; }
   .entry-content dd {
     margin-left: 0;
     font-size: 0.9em;

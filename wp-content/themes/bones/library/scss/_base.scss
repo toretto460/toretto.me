@@ -20,7 +20,7 @@ body {
 	font-weight: 100;
 	font-size: 100%;
 	line-height: 1.5;
-	color: #565656;
+	color: $txt-color;
 	background: url(../images/furley_bg.png) repeat 0 0;
 }
 
@@ -155,11 +155,12 @@ HEADER SYTLES
 .header {}
 
 	#logo {
-		text-align: center;
 	}
 
 	.title-huge {
-		font-size: 75px;
+		font-family: $sans-serif !important;
+		font-size: 30px;
+		font-weight: 100;
 	}
 
 /*********************
@@ -303,7 +304,9 @@ POSTS & CONTENT STYLES
 		/* entry content */
 		.entry-content {
 
-			p {}
+			p {
+				font-size: 28px;
+			}
 
 
 			ul, ol, table, dl {}

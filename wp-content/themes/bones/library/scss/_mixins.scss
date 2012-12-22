@@ -63,6 +63,8 @@ $bones-pink:        #f01d4f;
 $bones-blue:        #1990db;
 $bones-green:				#00C322;
 
+$txt-color:					#565656;
+
 $link-color:        #AA00A2;
 $link-hover:        darken($link-color, 10%);
 
@@ -79,11 +81,12 @@ TYPOGRAPHY
 /*
 	Googe font face
 */
-@import url(http://fonts.googleapis.com/css?family=Lato:100italic|Wire+One);
+@import url(http://fonts.googleapis.com/css?family=Lato:100|Wire+One);
 
 $sans-serif:        'Lato', sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 $sans-serif-tit: 		'Wire One', sans-serif;
+
 
 /* 	To embed your own fonts, use this syntax
 	and place your fonts inside the
