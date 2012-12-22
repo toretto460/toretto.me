@@ -855,7 +855,11 @@ and more scalable.
 POSTS & CONTENT STYLES
 *********************/
 #content {
-  margin-top: 2.2em; }
+  margin-top: 0.2em; }
+
+.centered {
+  margin: 0 auto !important;
+  float: none !important; }
 
 /* end .hentry */
 .single-title,
