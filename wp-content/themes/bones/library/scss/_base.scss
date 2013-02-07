@@ -56,7 +56,6 @@ style a page via class
 	a {
 		text-transform: uppercase;
 		font-size: 11px;
-		background-color: darken($tag-base-color, 10%);
 		font-family: $serif;
 		padding: 5px;
 		-webkit-border-radius: 8px;
@@ -67,7 +66,6 @@ style a page via class
 		border-bottom-right-radius: 2px;
 		margin-left: 6px;
 		margin-right: 6px;
-		@include box-shadow(1px, 1px, 11px);
 	}	
 }                           /* tag page */
 	.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
