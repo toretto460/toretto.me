@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100|Wire+One);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300|Clicker+Script|IM+Fell+Double+Pica+SC);
 /******************************************************************
 Site Name: 
 Author: 
@@ -154,7 +154,7 @@ probably best not to use it. I mean, were you going to anyway? */
 BUTTONS
 *********************/
 .button, .button:visited {
-  font-family: "Lato", sans-serif;
+  font-family: "Open Sans", sans-serif;
   border: 1px solid #680063;
   border-top-color: #860080;
   border-left-color: #860080;

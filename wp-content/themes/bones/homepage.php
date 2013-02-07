@@ -37,7 +37,7 @@ Template Name: Homepage
 						    </section> <!-- end article section -->
 						
 						    <footer class="article-footer">
-							    <p class="clearfix"><?php the_tags('<span class="tags">' . __('Tags:', 'bonestheme') . '</span> ', ', ', ''); ?></p>
+							    <p class="clearfix"><?php the_tags('<span class="tag">', '</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeUlEQVQ4Ec1SQQ7AIAgTX6X/P/gsNg5sDXayLDtIYgRLlQpFVYuv1trp3jHzY04twXrvGo6ukGFir6CxJMTHGILxVEFMwGSGTRcg4Y2/wQXZp61kGPcfCV+qcI7YZK3KzLDKepuRHDfuppPIZLEzk/LYRiSg7/p9PwCxL145SNYkeQAAAABJRU5ErkJggg=="/><span class="tag">', '</span>'); ?></p>
 							
 						    </footer> <!-- end article footer -->
 

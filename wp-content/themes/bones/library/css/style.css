@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100|Wire+One);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300|Clicker+Script|IM+Fell+Double+Pica+SC);
 /******************************************************************
 Site Name:
 Author:
@@ -115,7 +115,7 @@ a:hover {
  */
 h1 {
   font-size: 2em;
-  margin: 0.67em 0; }
+  margin: 0.15em 0; }
 
 h2 {
   font-size: 1.5em;
@@ -605,7 +605,7 @@ probably best not to use it. I mean, were you going to anyway? */
 BUTTONS
 *********************/
 .button, .button:visited {
-  font-family: "Lato", sans-serif;
+  font-family: "Open Sans", sans-serif;
   border: 1px solid #680063;
   border-top-color: #860080;
   border-left-color: #860080;
@@ -693,11 +693,11 @@ and will be used across all viewports.
 GENERAL STYLES
 *********************/
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 100;
   font-size: 100%;
   line-height: 1.5;
-  color: #565656;
+  color: #303030;
   background: url(../images/furley_bg.png) repeat 0 0; }
 
 /********************
@@ -727,6 +727,24 @@ style a page via class
 /* category page */
 /* individual category page (i.e. body.category-6) */
 /* replace the number to the corresponding page number */
+.tag a {
+  text-transform: uppercase;
+  font-size: 11px;
+  background-color: gainsboro;
+  font-family: "IM Fell Double Pica SC", Times New Roman, Times, serif;
+  padding: 5px;
+  -webkit-border-radius: 8px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius: 8px;
+  -moz-border-radius-bottomright: 2px;
+  border-radius: 8px;
+  border-bottom-right-radius: 2px;
+  margin-left: 6px;
+  margin-right: 6px;
+  -webkit-box-shadow: 1px 1px 11px rgba(50, 50, 50, 0.6);
+  -moz-box-shadow: 1px 1px 11px rgba(50, 50, 50, 0.6);
+  box-shadow: 1px 1px 11px rgba(50, 50, 50, 0.6); }
+
 /* tag page */
 /* individual tag page (i.e. body.tag-news) */
 /* replace the number to the corresponding page number */
@@ -750,6 +768,7 @@ LAYOUT & GRID STYLES
 LINK STYLES
 *********************/
 a, a:visited {
+  text-decoration: none;
   color: #aa00a2;
   /* on hover */
   /* on click */
@@ -768,7 +787,7 @@ a, a:visited {
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  font-family: "Wire One", sans-serif;
+  font-family: "Open Sans", sans-serif;
   text-rendering: optimizelegibility;
   font-weight: 100;
   /*
@@ -780,7 +799,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
     text-decoration: none; }
 
 h1, .h1 {
-  font-size: 4em;
+  font-size: 2.5em;
   line-height: 1.333em; }
 
 h2, .h2 {
@@ -804,10 +823,23 @@ h5, .h5 {
 /*********************
 HEADER SYTLES
 *********************/
+.header {
+  background: url(../images/bg.jpg) no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  box-shadow: 0px 3px 7px 1px #969696;
+  -webkit-box-shadow: 0px 3px 7px 1px #969696; }
+
+span.desc {
+  color: #fcfcfc; }
+
 .title-huge {
-  font-family: "Lato", sans-serif !important;
+  font-family: "Clicker Script", coursive;
+  margin: 8px 0;
   font-size: 30px;
-  font-weight: 100; }
+  font-weight: 600; }
 
 /*********************
 NAVIGATION STYLES
@@ -891,7 +923,8 @@ POSTS & CONTENT STYLES
   but it's up to you. Feel free to change it up.
   */ }
   .entry-content p {
-    font-size: 28px; }
+    font-weight: 200;
+    font-size: 21px; }
   .entry-content dd {
     margin-left: 0;
     font-size: 0.9em;

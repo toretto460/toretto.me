@@ -44,7 +44,7 @@
 					
 					<p id="logo" class="h1 twelvecol first last title-huge"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
 					<!-- if you'd like to use the site description you can un-comment it below -->
-					<?php // bloginfo('description'); ?>
+					<span class="desc"><strong><?php  bloginfo('description'); ?></strong></span>
 					
 					
 					<nav role="navigation">
@@ -54,7 +54,3 @@
 				</div> <!-- end #inner-header -->
 			
 			</header> <!-- end header -->
-
-			<div class="bio">
-
-			</div>

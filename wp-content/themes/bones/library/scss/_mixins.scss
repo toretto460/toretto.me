@@ -63,7 +63,11 @@ $bones-pink:        #f01d4f;
 $bones-blue:        #1990db;
 $bones-green:				#00C322;
 
-$txt-color:					#565656;
+$txt-color:					#303030;
+
+$shadow-color: 			#969696;
+
+$tag-base-color:    #F5F5F5;
 
 $link-color:        #AA00A2;
 $link-hover:        darken($link-color, 10%);
@@ -81,11 +85,12 @@ TYPOGRAPHY
 /*
 	Googe font face
 */
-@import url(http://fonts.googleapis.com/css?family=Lato:100|Wire+One);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300|Clicker+Script|IM+Fell+Double+Pica+SC);
 
-$sans-serif:        'Lato', sans-serif;
-$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
-$sans-serif-tit: 		'Wire One', sans-serif;
+$sans-serif:        'Open Sans', sans-serif;
+$coursive:					'Clicker Script', coursive;
+$serif:             'IM Fell Double Pica SC', Times New Roman, Times, serif;
+$sans-serif-tit: 		'Open Sans', sans-serif;
 
 
 /* 	To embed your own fonts, use this syntax
@@ -204,6 +209,13 @@ probably best not to use it. I mean, were you going to anyway? */
 	-moz-box-sizing:    $type;
 	-ms-box-sizing:     $type;
 	box-sizing:         $type;
+}
+
+
+@mixin box-shadow($Xpx: 5px, $Ypx: 5px, $Zpx: 5px) {
+	-webkit-box-shadow: $Xpx $Ypx $Zpx rgba(50, 50, 50, 0.60);
+	-moz-box-shadow:    $Xpx $Ypx $Zpx rgba(50, 50, 50, 0.60);
+	box-shadow:         $Xpx $Ypx $Zpx rgba(50, 50, 50, 0.60);
 }
 
 
