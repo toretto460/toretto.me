@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300|Clicker+Script|IM+Fell+Double+Pica+SC);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300|Clicker+Script|Port+Lligat+Slab);
 /******************************************************************
 Site Name: 
 Author: 
@@ -96,7 +96,7 @@ use the best ampersand
 http://simplebits.com/notebook/2008/08/14/ampersands-2/
 */
 span.amp {
-  font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
+  font-family: Baskerville, "Goudy Old Style", Palatino, "Book Antiqua", serif !important;
   font-style: italic; }
 
 .text-left {
@@ -338,7 +338,7 @@ NAVIGATION STYLES
     .nav li ul.sub-menu,
     .nav li ul.children {
       width: 200px;
-      border: 1px solid #ccc;
+      border: 1px solid #cccccc;
       border-top: 0;
       position: absolute;
       display: none;
@@ -357,7 +357,7 @@ NAVIGATION STYLES
           border-right: 0;
           display: block;
           width: 180px;
-          border-bottom: 1px solid #ccc; }
+          border-bottom: 1px solid #cccccc; }
         .nav li ul.sub-menu li:last-child a,
         .nav li ul.children li:last-child a {
           border-bottom: 0; }
@@ -373,7 +373,7 @@ SIDEBARS & ASIDES
   margin-top: 2.2em; }
 
 .widgettitle {
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #444444;
   margin-bottom: 0.75em; }
 
 .widget {
