@@ -1053,6 +1053,14 @@ $check_settings->updateSettingsGroup($whattokeep);*/
 		   wp_redirect(admin_url('admin.php?page=simple-dropbox-upload-form/wp-dropbox.php'));
 	    }
 	}
+	
+	add_action('wp_handle_upload_prefilter', 'handle_media_upload');
+	add_action('add_attachment', 'handle_media_upload');
+	add_action('edit_attachment', 'handle_media_upload');
+	function handle_media_upload($data) {
+		var_dump(count($_FILES), $data);
+		die;
+	}
 
 	function WP_DB_PluginInit(){
 	  	//load_plugin_textdomain( 'simpleDbUpload', PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)),dirname(plugin_basename(__FILE__)).'/languages');
