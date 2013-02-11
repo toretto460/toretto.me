@@ -1,0 +1,12 @@
+div#wpsdb-header { background:url('../images/simple-dropbox-icon-large.png') no-repeat left center; padding-left:70px; padding-top:10px; margin-bottom:10px; height:60px; }
+
+#side-info-column .postbox .hndle, .wpsdb-label{cursor:default;}
+
+#wpsdb-thank-color-example {-moz-border-radius: 4px;-webkit-border-radius: 4px;border-radius: 4px;border: 1px solid #dfdfdf;margin: 0 7px 0 3px;padding: 4px 14px;}
+
+.fb_iframe_widget {width:76px;}
+.twitter-share-button{width:83px !important;}
+#pinterest iframe{width:50px !important;}
+#___plusone_0{width:63px !important;}
+
+#TB_window a:link, #TB_window a:visited {color:#FFF !important;}
