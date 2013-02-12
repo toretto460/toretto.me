@@ -1054,12 +1054,31 @@ $check_settings->updateSettingsGroup($whattokeep);*/
 	    }
 	}
 	
-	add_action('wp_handle_upload_prefilter', 'handle_media_upload');
-	add_action('add_attachment', 'handle_media_upload');
-	add_action('edit_attachment', 'handle_media_upload');
+	//add_action('wp_handle_upload_prefilter', 'handle_media_upload');
+	//add_action('add_attachment', 'handle_media_upload');
+	//add_action('edit_attachment', 'handle_media_upload');
+
+
 	function handle_media_upload($data) {
-		var_dump(count($_FILES), $data);
-		die;
+
+		// use image exif/iptc data for title and caption defaults if possible
+		if ( $image_meta = @wp_read_image_metadata($data['tmp_name']) ) {
+			if ( trim( $image_meta['title'] ) && !is_numeric( sanitize_title( $image_meta['title'] ) ) )
+				$title = $image_meta['title'];
+			if ( trim($image_meta['caption']) )
+				$content = $image_meta['caption'];
+		}
+
+		//$id = wp_insert_attachment($attachment, $file, $post_id);
+
+		var_dump($data);
+	}
+
+
+	add_filter('wp_handle_upload','after_media_upload',10,2);
+	function after_media_upload($val, $attr)
+	{
+		var_dump($val, $attr);
 	}
 
 	function WP_DB_PluginInit(){
