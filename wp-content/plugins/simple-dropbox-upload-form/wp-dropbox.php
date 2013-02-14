@@ -1061,7 +1061,8 @@ $check_settings->updateSettingsGroup($whattokeep);*/
 
 function send($file)
 {
-	
+	$relative = parse_url($file);
+	$relative = trim($file_name['path'],'/');
 	$wpsdb_key = get_option('wpsdb_key');
 	$wpsdb_secret = get_option('wpsdb_secret');
 	$wpsdb_up_method = get_option('wpsdb_php_pear');
@@ -1095,7 +1096,7 @@ function send($file)
 
 		}
 
-		if ( !$dropbox->putFile(trim($wpsdb_path,'/').'/'.$file, $wpstmpFile,"dropbox") ) {
+		if ( !$dropbox->putFile($relative, $file,"dropbox") ) {
 			throw new Exception(__('ERROR! Upload Failed.',simpleDbUpload));
 		}
 }
@@ -1110,10 +1111,9 @@ function send_media_to_dropbox($post_id) {
 		echo('is image');
 	
 		$image_uri = $post->guid;
-		$file_name = parse_url($image_uri);
-		$file_name = trim($file_name['path'],'/');
 
-		send($file_name);
+
+		send($image_uri);
 	} else {
 		echo "not-image";
 	}
@@ -1157,15 +1157,16 @@ function send_media_to_dropbox($post_id) {
 	}		
 
 }
-	add_action('edit_attachment', 'after_media_upload');
-	add_action('add_attachment', 'after_media_upload');
-	//add_filter('wp_handle_upload','after_media_upload',10,2);
+
 	function after_media_upload($post_id)
 	{
 		//do the magic
 		send_media_to_dropbox($post_id);
 	}
 
+	add_action('edit_attachment', 'after_media_upload',10,1);
+	add_action('add_attachment', 'after_media_upload',10,1);
+	
 	function WP_DB_PluginInit(){
 	  	//load_plugin_textdomain( 'simpleDbUpload', PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)),dirname(plugin_basename(__FILE__)).'/languages');
 		load_plugin_textdomain('simpleDbUpload', false, basename( dirname( __FILE__ ) ) . '/languages' );
