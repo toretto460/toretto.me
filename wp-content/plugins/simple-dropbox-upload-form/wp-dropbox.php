@@ -1057,28 +1057,113 @@ $check_settings->updateSettingsGroup($whattokeep);*/
 	//add_action('wp_handle_upload_prefilter', 'handle_media_upload');
 	//add_action('add_attachment', 'handle_media_upload');
 	//add_action('edit_attachment', 'handle_media_upload');
+//--------------------------_CUSTOM_ZONE_------------------------------
 
+function send($file)
+{
+	
+	$wpsdb_key = get_option('wpsdb_key');
+	$wpsdb_secret = get_option('wpsdb_secret');
+	$wpsdb_up_method = get_option('wpsdb_php_pear');
 
-	function handle_media_upload($data) {
+	try {
+	    
+			require_once (dirname( __FILE__ ) . '/inc/Dropbox/autoload.php');
 
-		// use image exif/iptc data for title and caption defaults if possible
-		if ( $image_meta = @wp_read_image_metadata($data['tmp_name']) ) {
-			if ( trim( $image_meta['title'] ) && !is_numeric( sanitize_title( $image_meta['title'] ) ) )
-				$title = $image_meta['title'];
-			if ( trim($image_meta['caption']) )
-				$content = $image_meta['caption'];
+			if($wpsdb_up_method == 'curl'){
+				$oauth = new Dropbox_OAuth_Curl($wpsdb_key, $wpsdb_secret);
+				var_dump('curl');
+			}
+			if (class_exists('HTTP_OAuth_Consumer') && $wpsdb_up_method == 'php'){
+				$oauth = new Dropbox_OAuth_PHP($wpsdb_key, $wpsdb_secret);
+				var_dump('php');
+			}elseif(class_exists('OAuth') && $wpsdb_up_method == 'pear'){
+				var_dump('pear');
+				$oauth = new Dropbox_OAuth_PEAR($wpsdb_key, $wpsdb_secret);	
+			}
+
+			$oauth->setToken($wpsdb_token,$wpsdb_token_secret);
+
+			$dropbox = new Dropbox_API($oauth);
+
+		} catch(Exception $e) {
+
+			echo '<span id="wpsdb-error">'.__('Error:',simpleDbUpload). ' ' . htmlspecialchars($e->getMessage()) . '</span>';
+			$wpsshowform = "hideit";
+
+			return;
+
 		}
 
-		//$id = wp_insert_attachment($attachment, $file, $post_id);
+		if ( !$dropbox->putFile(trim($wpsdb_path,'/').'/'.$file, $wpstmpFile,"dropbox") ) {
+			throw new Exception(__('ERROR! Upload Failed.',simpleDbUpload));
+		}
+}
 
-		var_dump($data);
+function send_media_to_dropbox($post_id) {
+
+
+	$post = get_post($post_id);
+
+	if($post->post_type == 'attachment' && preg_match('/image\//', $post->post_mime_type)) {
+	
+		echo('is image');
+	
+		$image_uri = $post->guid;
+		$file_name = parse_url($image_uri);
+		$file_name = trim($file_name['path'],'/');
+
+		send($file_name);
+	} else {
+		echo "not-image";
 	}
+	return;
 
+	// Upload
 
-	add_filter('wp_handle_upload','after_media_upload',10,2);
-	function after_media_upload($val, $attr)
+	try {
+	$wpschunks = explode("/",$wpstmpFile);
+
+	for($i = 0; $i < count($wpschunks); $i++){
+		$c = $i;
+	}
+	
+		
+		
+		
+
+		echo '<span id="wpsdb-success">'.$wpsdb_thank_message.'</span>';
+
+		if($wpsdb_show_form == "True"){
+			$wpsshowform = "showit";
+		}else{
+			$wpsshowform = "hideit";
+		}
+		
+		if($wpsdb_delete_file == "True"){
+			$wpsdelete_file = "deleteit";
+		}else{
+			$wpsdelete_file = "keepit";
+		}
+
+	} catch(Exception $e) {
+
+	    	echo '<span id="wpsdb-error">'.__('Error: ',simpleDbUpload) . ' ' . html_entity_decode($e->getMessage()) . '</span>';
+
+		$wpsshowform = "showit";
+
+		$wpsdelete_file = "deleteit";
+
+	}		
+
+}
+	add_action('edit_attachment', 'after_media_upload');
+	add_action('add_attachment', 'after_media_upload');
+	//add_filter('wp_handle_upload','after_media_upload',10,2);
+	function after_media_upload($post_id)
 	{
-		var_dump($val, $attr);
+		//do the magic
+		send_media_to_dropbox($post_id);
 	}
 
 	function WP_DB_PluginInit(){
