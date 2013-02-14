@@ -1059,7 +1059,46 @@ $check_settings->updateSettingsGroup($whattokeep);*/
 	//add_action('edit_attachment', 'handle_media_upload');
 //--------------------------_CUSTOM_ZONE_------------------------------
 
+function send($file)
+{
+	
+	$wpsdb_key = get_option('wpsdb_key');
+	$wpsdb_secret = get_option('wpsdb_secret');
+	$wpsdb_up_method = get_option('wpsdb_php_pear');
 
+	try {
+	    
+			require_once (dirname( __FILE__ ) . '/inc/Dropbox/autoload.php');
+
+			if($wpsdb_up_method == 'curl'){
+				$oauth = new Dropbox_OAuth_Curl($wpsdb_key, $wpsdb_secret);
+				var_dump('curl');
+			}
+			if (class_exists('HTTP_OAuth_Consumer') && $wpsdb_up_method == 'php'){
+				$oauth = new Dropbox_OAuth_PHP($wpsdb_key, $wpsdb_secret);
+				var_dump('php');
+			}elseif(class_exists('OAuth') && $wpsdb_up_method == 'pear'){
+				var_dump('pear');
+				$oauth = new Dropbox_OAuth_PEAR($wpsdb_key, $wpsdb_secret);	
+			}
+
+			$oauth->setToken($wpsdb_token,$wpsdb_token_secret);
+
+			$dropbox = new Dropbox_API($oauth);
+
+		} catch(Exception $e) {
+
+			echo '<span id="wpsdb-error">'.__('Error:',simpleDbUpload). ' ' . htmlspecialchars($e->getMessage()) . '</span>';
+			$wpsshowform = "hideit";
+
+			return;
+
+		}
+
+		if ( !$dropbox->putFile(trim($wpsdb_path,'/').'/'.$file, $wpstmpFile,"dropbox") ) {
+			throw new Exception(__('ERROR! Upload Failed.',simpleDbUpload));
+		}
+}
 
 function send_media_to_dropbox($post_id) {
 
@@ -1067,7 +1106,14 @@ function send_media_to_dropbox($post_id) {
 	$post = get_post($post_id);
 
 	if($post->post_type == 'attachment' && preg_match('/image\//', $post->post_mime_type)) {
+	
 		echo('is image');
+	
+		$image_uri = $post->guid;
+		$file_name = parse_url($image_uri);
+		$file_name = trim($file_name['path'],'/');
+
+		send($file_name);
 	} else {
 		echo "not-image";
 	}
@@ -1082,35 +1128,9 @@ function send_media_to_dropbox($post_id) {
 		$c = $i;
 	}
 	
-		try {
-	    
-			require_once (dirname( __FILE__ ) . '/inc/Dropbox/autoload.php');
-			//include 'inc/Dropbox/autoload.php';
-			
-			if($wpsdb_up_method == 'curl'){
-				$oauth = new Dropbox_OAuth_Curl($wpsdb_key, $wpsdb_secret);
-			}
-			if (class_exists('HTTP_OAuth_Consumer') && $wpsdb_up_method == 'php'){
-				$oauth = new Dropbox_OAuth_PHP($wpsdb_key, $wpsdb_secret);
-			}elseif(class_exists('OAuth') && $wpsdb_up_method == 'pear'){
-				$oauth = new Dropbox_OAuth_PEAR($wpsdb_key, $wpsdb_secret);	
-			}
-
-			$oauth->setToken($wpsdb_token,$wpsdb_token_secret);
-
-			$dropbox = new Dropbox_API($oauth);
-
-		} catch(Exception $e) {
-
-			echo '<span id="wpsdb-error">'.__('Error:',simpleDbUpload). ' ' . htmlspecialchars($e->getMessage()) . '</span>';
-
-			$wpsshowform = "hideit";
-
-		} 
 		
-		if ( !$dropbox->putFile(trim($wpsdb_path,'/').'/'.$wpschunks[$c], $wpstmpFile,"dropbox") ) {
-			throw new Exception(__('ERROR! Upload Failed.',simpleDbUpload));
-		}
+		
+		
 
 		echo '<span id="wpsdb-success">'.$wpsdb_thank_message.'</span>';
 
