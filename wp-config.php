@@ -13,9 +13,17 @@
  *
  * @package WordPress
  */
-// ** Heroku Postgres settings - from Heroku Environment ** //
-$db = parse_url(apache_getenv("CLEARDB_DATABASE_URL"));
-//var_dump($db);
+
+define(DEV, true);
+
+if (DEV == true) {
+	$mysql_string = "mysql://toretto:toretto@localhost/toretto";
+} else {
+	$mysql_string = apache_getenv("CLEARDB_DATABASE_URL");
+}
+
+$db = parse_url($mysql_string);
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', trim($db["path"],"/"));
