@@ -14,7 +14,7 @@
  * @package WordPress
  */
 
-define(DEV, true);
+define(DEV, false);
 
 if (DEV == true) {
 	$mysql_string = "mysql://toretto:toretto@localhost/toretto";
