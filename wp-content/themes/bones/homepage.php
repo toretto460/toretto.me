@@ -34,7 +34,7 @@ Template Name: Homepage
 						    </header> <!-- end article header -->
 					
 						    <section class="entry-content">
-							    <?php the_excerpt('more'); ?>
+							    <?php the_content('More...'); ?>
 						    </section> <!-- end article section -->
 						
 						    <footer class="article-footer">
