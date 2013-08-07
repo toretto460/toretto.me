@@ -29,12 +29,12 @@ a:active {text-decoration: none; color:#C40084;}  /* selected link */
 .username{
 	margin-top: 50px;
 	font-size: 160px;
-	text-align: center;
 	text-shadow: 3px 2px #A3A3A3;
 }
 .social-area{
 	width: 80%;
 	margin: 0 auto;
+	text-align: center;
 }
 .social-area ul{
 	list-style: none;
