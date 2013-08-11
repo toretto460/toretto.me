@@ -26,6 +26,13 @@ a:active {text-decoration: none; color:#C40084;}  /* selected link */
 .container{
 	padding-top: 30px;
 }
+.description{
+	font: 1.2em/1.5em "museo_slab500" red;
+	margin: 0 auto;
+	text-align: center;
+	width: 80%;
+	color: #000;
+}
 .username{
 	margin-top: 50px;
 	font-size: 160px;
