@@ -18,6 +18,9 @@ html {
   font-family: 'museo_slab500';
   color: #FFFFFF;
 }
+body{
+  overflow: hidden;
+}
 a:link {text-decoration: none; color:#C40084;}      /* unvisited link */
 a:visited {text-decoration: none; color:#C40084;}  /* visited link */
 a:hover {text-decoration: none; color:#C40084;}  /* mouse over link */
