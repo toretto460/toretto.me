@@ -37,10 +37,10 @@ a:active {text-decoration: none; color:#C40084;}  /* selected link */
 	color: #000;
 }
 .username{
-        display: inline-block;
-        width: 100%;
+    display: inline-block;
+    width: 100%;
 	margin-top: 50px;
-	font-size: 160px;
+	font-size: 90px;
 	text-shadow: 3px 2px #A3A3A3;
 }
 .social-area{
@@ -54,10 +54,9 @@ a:active {text-decoration: none; color:#C40084;}  /* selected link */
 	display: inline-block;
 	margin-left: 20px;
 	margin-right: 20px;
-	font-size: 130px;
+	font-size: 90px;
 }
 .social-icon{
-	font-size: 130px;
 	color: #C40084;
 	text-shadow: 3px 2px #A3A3A3;
 }
@@ -65,7 +64,7 @@ a:active {text-decoration: none; color:#C40084;}  /* selected link */
 	display: inline-block;
 }
 .big-text {
-	font-size: 40px;
+	font-size: 30px;
 }
 /* Overriding twitter widget layout */
 .timeline{
