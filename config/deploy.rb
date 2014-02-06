@@ -1,11 +1,6 @@
 set :application, 'toretto.me'
 set :repo_url, 'git@github.com:toretto460/toretto.me.git'
 
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require 'rvm/capistrano'
-set :rvm_ruby_string, 'ruby-2.0.0-p247'
-set :rvm_type, :user
-
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 set :deploy_to, '/home/toretto/www/toretto.me'
@@ -14,7 +9,8 @@ set :scm, :git
 # set :format, :pretty
 set :log_level, :debug
 # set :pty, true
-# set :rbenv_ruby , '1.9.1'
+set :rbenv_ruby , 'ruby-2.0.0-p247'
+set :rbenv_type , :system 
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 

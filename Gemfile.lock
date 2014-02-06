@@ -6,12 +6,6 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
-    capistrano-bundler (1.1.1)
-      capistrano (~> 3.0)
-      sshkit (>= 1.2.0)
-    capistrano-rbenv (2.0.2)
-      capistrano (~> 3.1)
-      sshkit (~> 1.3)
     faraday (0.8.9)
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
@@ -26,13 +20,13 @@ GEM
     net-ssh (2.8.0)
     oauth (0.4.7)
     rack (1.5.2)
-    rack-protection (1.5.0)
+    rack-protection (1.5.2)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rake (10.1.1)
     simple_oauth (0.2.0)
-    sinatra (1.4.3)
+    sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
@@ -51,7 +45,7 @@ GEM
       tins (~> 0.8)
     tilt (1.4.1)
     tins (0.13.2)
-    tumblr_client (0.8.2)
+    tumblr_client (0.8.1)
       faraday (>= 0.8)
       faraday_middleware (>= 0.8)
       json
@@ -64,8 +58,6 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano (~> 3.1.0)
-  capistrano-bundler
-  capistrano-rbenv (~> 2.0)
   sinatra
   sinatra-contrib
   tumblr_client
