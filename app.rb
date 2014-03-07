@@ -7,9 +7,8 @@ set :public_folder, File.dirname(__FILE__) + '/public'
 set :static_cache_control, [:public, :max_age => 3600]
 disable :protection
 
-config_file 'config/prod.yml'
-
 Tumblr.configure do |config|
+  config_file 'config/prod.yml'
   config.consumer_key = settings.tumblr["consumer_key"]
   config.consumer_secret = settings.tumblr["consumer_secret"]
 end
