@@ -14,6 +14,7 @@ Tumblr.configure do |config|
 end
 
 get '/posts' do
+	headers 'X-Who-i-am' => 'If you are reading this header maybe you are interested on http://goo.gl/HFGqUh'
 	client = Tumblr::Client.new
 	posts = client.posts("toretto460.tumblr.com", :limit => 10)['posts']
 	content_type 'text/json', :charset => 'utf-8'
@@ -21,6 +22,7 @@ get '/posts' do
 end
 
 get '/' do
+  headers 'X-Who-i-am' => 'If you are reading this header maybe you are interested on http://goo.gl/HFGqUh'
   content_type 'text/html', :charset => 'utf-8'
   File.read(File.join('public', 'index.html'))
 end

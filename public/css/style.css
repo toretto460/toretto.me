@@ -1,32 +1,39 @@
 @font-face {
     font-family: 'museo_slab500';
-    src: url('/font/Museo_Slab_500_2-webfont.eot');
-    src: url('/font/Museo_Slab_500_2-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/font/Museo_Slab_500_2-webfont.woff') format('woff'),
-         url('/font/Museo_Slab_500_2-webfont.ttf') format('truetype'),
-         url('/font/Museo_Slab_500_2-webfont.svg#museo_slab500') format('svg');
+    src: url('/fonts/Museo_Slab_500_2-webfont.eot');
+    src: url('/fonts/Museo_Slab_500_2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/Museo_Slab_500_2-webfont.woff') format('woff'),
+         url('/fonts/Museo_Slab_500_2-webfont.ttf') format('truetype'),
+         url('/fonts/Museo_Slab_500_2-webfont.svg#museo_slab500') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 html { 
-  background: url(../images/rome.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  /*background: url(../images/rome.jpg) no-repeat center center fixed;*/
+  background: url(../images/skulls.png); 
   font-family: 'museo_slab500';
-  color: #FFFFFF;
+  color: #7f0056;
 }
 body{
   overflow: hidden;
 }
-a:link {text-decoration: none; color:#C40084;}      /* unvisited link */
-a:visited {text-decoration: none; color:#C40084;}  /* visited link */
-a:hover {text-decoration: none; color:#C40084;}  /* mouse over link */
-a:active {text-decoration: none; color:#C40084;}  /* selected link */
+/*
+	magenta #-C40084;
+*/
+a:link {text-decoration: none; color:#7f0056;}      /* unvisited link */
+a:visited {text-decoration: none; color:#7f0056;}  /* visited link */
+a:hover {text-decoration: none; color:#7f0056;}  /* mouse over link */
+a:active {text-decoration: none; color:#7f0056;}  /* selected link */
 
 .container{
+	position: absolute;
+	min-height: 100%;
+	min-width: 100%;
 	padding-top: 30px;
 }
 .description{
@@ -39,7 +46,7 @@ a:active {text-decoration: none; color:#C40084;}  /* selected link */
 .username{
     display: inline-block;
     width: 100%;
-	margin-top: 50px;
+	margin: 30px 0;
 	font-size: 90px;
 	text-shadow: 3px 2px #A3A3A3;
 }
@@ -57,7 +64,7 @@ a:active {text-decoration: none; color:#C40084;}  /* selected link */
 	font-size: 90px;
 }
 .social-icon{
-	color: #C40084;
+	color: #7f0056;
 	text-shadow: 3px 2px #A3A3A3;
 }
 .group-icon{
@@ -66,7 +73,53 @@ a:active {text-decoration: none; color:#C40084;}  /* selected link */
 .big-text {
 	font-size: 30px;
 }
+#posts{
+	text-align: center;
+}
+#posts ul li{
+	padding: 10px 0;
+	font-size: 25px;
+}
 /* Overriding twitter widget layout */
 .timeline{
 	background-color: rgba(255, 255, 255, 0.84);
+}
+.loader{
+	font-size: 35px;
+}
+
+/* Effect 1: Brackets */
+.cl-effect-1 a::before,
+.cl-effect-1 a::after {
+	display: inline-block;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.cl-effect-1 a::before {
+	margin-right: 10px;
+	content: '[';
+	-webkit-transform: translateX(20px);
+	-moz-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+.cl-effect-1 a::after {
+	margin-left: 10px;
+	content: ']';
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	transform: translateX(-20px);
+}
+
+.cl-effect-1 a:hover::before,
+.cl-effect-1 a:hover::after,
+.cl-effect-1 a:focus::before,
+.cl-effect-1 a:focus::after {
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
 }

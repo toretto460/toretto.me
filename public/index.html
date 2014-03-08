@@ -9,14 +9,12 @@
 	<link rel="stylesheet" type="text/css" href="/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/font-awesome-ie7.min.css">
-
 
 </head>
 <body>
 	<div class="container">
 		<div class="social-area">
-			<ul>
+
 			<div class="description" itemscope itemtype="http://data-vocabulary.org/Person">
 				<p>
 					My name is <span itemprop="name">Simone Di Maulo</span> ( <span itemprop="nickname">Toretto460</span> ) -
@@ -30,48 +28,56 @@
 			  </span>
 			  and work as a <strong itemprop="title">web developer</strong>.
 			</div>
+			<strong class="username">Toretto460</strong>
 				<div class="group-icon">
+				<ul>
 				<li>
 				 	<a target="_blank" href="https://www.github.com/toretto460">
-				 		<i class="social-icon icon-github"></i>
+				 		<i class="social-icon fa fa-github"></i>
 				 	</a> 
 				</li>
 				<li> 
 					<a target="_blank" href="http://www.linkedin.com/pub/simone-di-maulo/4b/997/501">
-						<i class="social-icon icon-linkedin"></i>		
+						<i class="social-icon fa fa-linkedin"></i>		
 					</a> 
 				</li>
 				<li> 
 					<a target="_blank" rel="author" href="https://plus.google.com/107150472910439772894?rel=author">
-						<i class="social-icon icon-google-plus-sign"></i>	
+						<i class="social-icon fa fa-google-plus-square"></i>	
 					</a> 
 				</li>
 				<li>
 					<a target="_blank" href="https://twitter.com/toretto460">
-						<i class="social-icon icon-twitter"></i>
+						<i class="social-icon fa fa-twitter"></i>
 					</a>
 				</li>
 				<li>
 					<a target="_blank" href="http://toretto460.tumblr.com/">
-						<i class="social-icon icon-tumblr"></i>
+						<i class="social-icon fa fa-tumblr"></i>
 					</a>
 				</li>
-				</div>
+				<li>
+					<a target="_blank" href="http://slideshare.net/SimoneDiMaulo">
+						<i class="social-icon fa fa-caret-square-o-right"></i>
+					</a>
+				</li>
 			</ul>
-			<p>◎</p>
-			<span><a class="big-text" href="http://slideshare.net/SimoneDiMaulo">Slideshare</a></span>
-			<strong class="username">Toretto460</strong>	
-			<div id="posts"></div>		
-			<a class="twitter-timeline" data-chrome="nofooter" width="700" height="300" href="https://twitter.com/toretto460" data-widget-id="366526442344951808"></a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+		</div>
+		<div id="posts">
+		<i class="fa fa-spinner fa-spin loader"></i>
 		</div>
 	</div>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
 	<script id="posts-template" type="text/x-handlebars-template">
+		<ul>
 		{{#each posts }}
-			<a href="{{post_url}}"><h1>{{title}}</h1></a>
+			<li class="cl-effect-1">
+				<a href="{{post_url}}">{{title}}</a>
+			</li>
 		{{/each}}
+		</ul>
 	</script>
 	<script type="text/javascript" src="/js/script.js"></script>
 	<script type="text/javascript">
