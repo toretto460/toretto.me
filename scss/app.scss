@@ -1,0 +1,79 @@
+@import "settings";
+@import "foundation";
+@import "compass/css3";
+@import "compass/css3/transform";
+
+// Or selectively include components
+// @import
+//   "foundation/components/accordion",
+//   "foundation/components/alert-boxes",
+//   "foundation/components/block-grid",
+//   "foundation/components/breadcrumbs",
+//   "foundation/components/button-groups",
+//   "foundation/components/buttons",
+//   "foundation/components/clearing",
+//   "foundation/components/dropdown",
+//   "foundation/components/dropdown-buttons",
+//   "foundation/components/flex-video",
+//   "foundation/components/forms",
+//   "foundation/components/grid",
+//   "foundation/components/inline-lists",
+//   "foundation/components/joyride",
+//   "foundation/components/keystrokes",
+//   "foundation/components/labels",
+//   "foundation/components/magellan",
+//   "foundation/components/orbit",
+//   "foundation/components/pagination",
+//   "foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/reveal",
+//   "foundation/components/side-nav",
+//   "foundation/components/split-buttons",
+//   "foundation/components/sub-nav",
+//   "foundation/components/switch",
+//   "foundation/components/tables",
+//   "foundation/components/tabs",
+//   "foundation/components/thumbs",
+//   "foundation/components/tooltips",
+//   "foundation/components/top-bar",
+//   "foundation/components/type",
+//   "foundation/components/offcanvas",
+//   "foundation/components/visibility";
+body{
+	overflow-x: hidden;
+}
+.card-container {
+	cursor: pointer;
+  @include grid-column(
+    // Set to true to remove column padding
+    $collapse:true
+  );
+}
+.card-container.focused{
+	z-index: 1;	
+}
+.card{
+	background: grey;
+	height: 150%;
+	margin-top:  -20%;
+	margin-left: -10%;
+	z-index: -1;
+	width: 120%;
+	position: absolute;
+	display: none;
+	@include box-shadow(grey 2px 2px 10px);
+}
+
+.card h3{
+	width: 100%;
+	display: none;
+	text-align: center;
+	margin: 3px 0 0 0;
+}
+.card footer{
+	position: absolute;
+	bottom: 3px;
+	width: 100%;
+	display: none;
+}

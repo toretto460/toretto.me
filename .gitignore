@@ -1,5 +1,5 @@
 .DS_Store
 wp-content/uploads/
 /config/prod.yml
-
-
+.sass-cache
+bower_components

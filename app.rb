@@ -1,10 +1,40 @@
 require 'sinatra'
 require 'sinatra/config_file'
 require 'tumblr_client'
+require 'sinatra/assetpack'
 
-set :static, true
-set :public_folder, File.dirname(__FILE__) + '/public'
-set :static_cache_control, [:public, :max_age => 3600]
+register Sinatra::AssetPack
+
+assets {
+  serve '/js',     from: 'public/js'
+  serve '/js',     from: 'bower_components/jquery/dist'
+  serve '/js',     from: 'bower_components/jquery.transit'
+  serve '/js',     from: 'bower_components/foundation/js'
+  serve '/fonts',  from: 'public/fonts'
+
+  serve '/css/',   from: 'public/css'       # Default
+  serve '/images', from: 'public/images'    # Default
+
+  # The second parameter defines where the compressed version will be served.
+  # (Note: that parameter is optional, AssetPack will figure it out.)
+  js :app, '/js/app.js', [
+    '/public/js/script.js',
+    '/js/jquery.min.js',
+    '/js/jquery.transit.js',
+    '/js/foundation.min.js'
+  ]
+
+  #css :application, '/css/application.css', [
+  #  '/css/screen.css'
+  #]
+
+  #js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
+  #css_compression :simple   # :simple | :sass | :yui | :sqwish
+}
+
+#set :static, true
+#set :public_folder, File.dirname(__FILE__) + '/public'
+#set :static_cache_control, [:public, :max_age => 3600]
 disable :protection
 
 Tumblr.configure do |config|
