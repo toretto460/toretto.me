@@ -13,7 +13,7 @@ Tumblr.configure do |config|
   config.consumer_secret = settings.tumblr["consumer_secret"]
 end
 
-get '/posts' do
+get '/tumblr_posts.json' do
 	headers 'X-Who-i-am' => 'If you are reading this header maybe you are interested on http://goo.gl/HFGqUh'
 	client = Tumblr::Client.new
 	posts = client.posts("toretto460.tumblr.com", :limit => 10)['posts']

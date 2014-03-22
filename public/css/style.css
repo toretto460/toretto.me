@@ -77,8 +77,8 @@ a:active {text-decoration: none; color:#7f0056;}  /* selected link */
 	text-align: center;
 }
 #posts ul li{
-	padding: 10px 0;
-	font-size: 25px;
+	padding: 20px 0;
+	font-size: 4em;
 }
 /* Overriding twitter widget layout */
 .timeline{
@@ -99,19 +99,21 @@ a:active {text-decoration: none; color:#7f0056;}  /* selected link */
 }
 
 .cl-effect-1 a::before {
+	font-family:FontAwesome;
 	margin-right: 10px;
-	content: '[';
-	-webkit-transform: translateX(20px);
-	-moz-transform: translateX(20px);
-	transform: translateX(20px);
+	content:"\f068";
+	-webkit-transform: translateX(10px);
+	-moz-transform: translateX(10px);
+	transform: translateX(10px);
 }
 
 .cl-effect-1 a::after {
+	font-family:FontAwesome;
 	margin-left: 10px;
-	content: ']';
-	-webkit-transform: translateX(-20px);
-	-moz-transform: translateX(-20px);
-	transform: translateX(-20px);
+	content:"\f061";
+	-webkit-transform: translateX(-10px);
+	-moz-transform: translateX(-10px);
+	transform: translateX(-10px);
 }
 
 .cl-effect-1 a:hover::before,
