@@ -101,7 +101,7 @@ a:active {text-decoration: none; color:#7f0056;}  /* selected link */
 .cl-effect-1 a::before {
 	font-family:FontAwesome;
 	margin-right: 10px;
-	content:"\f068";
+	content:"[";
 	-webkit-transform: translateX(10px);
 	-moz-transform: translateX(10px);
 	transform: translateX(10px);
@@ -110,7 +110,7 @@ a:active {text-decoration: none; color:#7f0056;}  /* selected link */
 .cl-effect-1 a::after {
 	font-family:FontAwesome;
 	margin-left: 10px;
-	content:"\f061";
+	content:"]";
 	-webkit-transform: translateX(-10px);
 	-moz-transform: translateX(-10px);
 	transform: translateX(-10px);
